@@ -524,16 +524,30 @@ h1,h2,h3{ margin: 0; }
 
 /* ---------- Photo/Project grid ---------- */
 .gallery{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(10px, 1.6vw, 22px);
+  column-count: 2;
+  column-gap: clamp(8px, 1.2vw, 16px);
 }
 .gallery__item{
   cursor: pointer;
   position:relative;
+  display: block;
+  break-inside: avoid;
+  margin-bottom: clamp(8px, 1.2vw, 16px);
 }
-.gallery__item .ph{ --ratio: 4/5; }
-.gallery__item:nth-child(3n+2) .ph{ --ratio: 3/4; }
+/* Placeholder tiles (no real photo yet) keep a fixed portrait box */
+.gallery__item .ph:not(.ph--media){ aspect-ratio: 4/5; }
+/* Real photos: box follows the image's own orientation — landscape stays wide, portrait stays tall */
+.gallery__item .ph--media{
+  aspect-ratio: auto;
+  display: block;
+}
+.gallery__item .ph--media .ph__img{
+  position: static;
+  width: 100%;
+  height: auto;
+  object-fit: initial;
+  display: block;
+}
 .gallery__caption{
   position:absolute; left:0; right:0; bottom:0;
   padding: 1rem;
@@ -551,8 +565,8 @@ h1,h2,h3{ margin: 0; }
 .gallery__item:hover .gallery__caption{ opacity:1; transform: translateY(0); }
 .gallery__item.is-hidden{ display:none; }
 
-@media (max-width: 900px){ .gallery{ grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 560px){ .gallery{ grid-template-columns: 1fr; } }
+@media (min-width: 560px){ .gallery{ column-count: 4; } }
+@media (min-width: 900px){ .gallery{ column-count: 6; } }
 
 .project-grid{
   display:grid;

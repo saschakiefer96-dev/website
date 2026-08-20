@@ -204,13 +204,13 @@
 <script src="js/main.js"></script>
 <script>
   // Deep-link support: #bikes / #landscape / #cars triggers the matching filter
-  (function(){
+  document.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash.replace('#','');
     if(['bikes','landscape','cars'].includes(hash)){
       const btn = document.querySelector('.filters button[data-filter="'+hash+'"]');
       if(btn) btn.click();
     }
-  })();
+  });
 </script>
 </body>
 </html>
