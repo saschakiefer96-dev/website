@@ -382,6 +382,29 @@ h1,h2,h3{ margin: 0; }
   .grid-3{ grid-template-columns: 1fr; }
 }
 
+/* ---------- Category tile (title bleeds behind image) ---------- */
+.category-tile{ display:block; }
+.category-tile__inner{ position:relative; padding-top: clamp(1.3rem, 4.2vw, 2.3rem); }
+.category-tile__title{
+  position:absolute;
+  top:0; left:0; right:0;
+  z-index:1;
+  text-align:center;
+  font-family: var(--font-display);
+  text-transform:uppercase;
+  font-size: clamp(2.6rem, 9vw, 4.6rem);
+  line-height:.82;
+  letter-spacing:-.01em;
+  color: var(--fg);
+  pointer-events:none;
+  transition: color .3s var(--ease);
+}
+.category-tile__media{
+  position:relative;
+  z-index:2;
+}
+.category-tile:hover .category-tile__title{ color: var(--accent); }
+
 /* ---------- Section headers ---------- */
 .section__head{
   display:flex;
