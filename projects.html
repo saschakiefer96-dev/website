@@ -52,6 +52,7 @@
     <button data-filter="musikvideo">Musikvideo</button>
     <button data-filter="dokumentation">Dokumentation</button>
     <button data-filter="kurzfilm">Kurzfilm</button>
+    <button data-filter="edit">Edit</button>
   </div>
 
   <div class="project-grid">
@@ -160,6 +161,81 @@
       </div>
     </a>
 
+    <a class="project-card reveal" data-project-item data-category="dokumentation"
+       href="https://youtu.be/bXOPIKtGtSA" target="_blank" rel="noopener"
+       data-lightbox data-youtube="bXOPIKtGtSA" data-title="Norway 2024 — Doku" data-meta="Dokumentation / 2024">
+      <div class="ph ph--media">
+        <img class="ph__img" src="https://img.youtube.com/vi/bXOPIKtGtSA/hqdefault.jpg" alt="Norway 2024 — Video-Thumbnail" loading="lazy" onerror="this.style.display='none'">
+        <div class="ph__scrim"></div>
+        <span class="ph__corner">09 / NORWAY 2024</span>
+        <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="project-card__meta">
+        <span class="project-card__title display">Norway 2024</span>
+        <span class="mono">Dokumentation — 2024</span>
+      </div>
+    </a>
+
+    <a class="project-card reveal" data-project-item data-category="werbefilm"
+       href="https://youtu.be/s2SWQ-ckR5Y" target="_blank" rel="noopener"
+       data-lightbox data-youtube="s2SWQ-ckR5Y" data-title="Lago di Como — Werbefilm" data-meta="Werbefilm / 2024">
+      <div class="ph ph--media">
+        <img class="ph__img" src="https://img.youtube.com/vi/s2SWQ-ckR5Y/hqdefault.jpg" alt="Lago di Como — Video-Thumbnail" loading="lazy" onerror="this.style.display='none'">
+        <div class="ph__scrim"></div>
+        <span class="ph__corner">10 / LAGO DI COMO</span>
+        <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="project-card__meta">
+        <span class="project-card__title display">Lago di Como</span>
+        <span class="mono">Werbefilm — 2024</span>
+      </div>
+    </a>
+
+    <a class="project-card reveal" data-project-item data-category="edit"
+       href="https://youtu.be/GuSNBLTrHN4" target="_blank" rel="noopener"
+       data-lightbox data-youtube="GuSNBLTrHN4" data-title="Homegrown — Edit" data-meta="Edit / 2026">
+      <div class="ph ph--media">
+        <img class="ph__img" src="https://img.youtube.com/vi/GuSNBLTrHN4/hqdefault.jpg" alt="Homegrown — Video-Thumbnail" loading="lazy" onerror="this.style.display='none'">
+        <div class="ph__scrim"></div>
+        <span class="ph__corner">11 / HOMEGROWN</span>
+        <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="project-card__meta">
+        <span class="project-card__title display">Homegrown</span>
+        <span class="mono">Edit — 2026</span>
+      </div>
+    </a>
+
+    <a class="project-card reveal" data-project-item data-category="edit"
+       href="https://youtu.be/sKaVGG7ZlcA" target="_blank" rel="noopener"
+       data-lightbox data-youtube="sKaVGG7ZlcA" data-title="Julian Hammer x Sascha Kiefer — Edit" data-meta="Edit / 2026">
+      <div class="ph ph--media">
+        <img class="ph__img" src="https://img.youtube.com/vi/sKaVGG7ZlcA/hqdefault.jpg" alt="Julian Hammer x Sascha Kiefer — Video-Thumbnail" loading="lazy" onerror="this.style.display='none'">
+        <div class="ph__scrim"></div>
+        <span class="ph__corner">12 / JULIAN HAMMER X SASCHA KIEFER</span>
+        <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="project-card__meta">
+        <span class="project-card__title display">Julian Hammer x Sascha Kiefer</span>
+        <span class="mono">Edit — 2026</span>
+      </div>
+    </a>
+
+    <a class="project-card reveal" data-project-item data-category="edit"
+       href="https://youtu.be/yXPHCYg9O6w" target="_blank" rel="noopener"
+       data-lightbox data-youtube="yXPHCYg9O6w" data-title="Jeremias Vaeth @ Trippstadt — Edit" data-meta="Edit / 2026">
+      <div class="ph ph--media">
+        <img class="ph__img" src="https://img.youtube.com/vi/yXPHCYg9O6w/hqdefault.jpg" alt="Jeremias Vaeth @ Trippstadt — Video-Thumbnail" loading="lazy" onerror="this.style.display='none'">
+        <div class="ph__scrim"></div>
+        <span class="ph__corner">13 / JEREMIAS VAETH @ TRIPPSTADT</span>
+        <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="project-card__meta">
+        <span class="project-card__title display">Jeremias Vaeth @ Trippstadt</span>
+        <span class="mono">Edit — 2026</span>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -207,6 +283,9 @@
   <button class="lightbox__close">✕</button>
   <div class="lightbox__inner">
     <div class="ph lightbox__media" data-label="Video einfügen"></div>
+    <div class="lightbox__video-wrap">
+      <iframe class="lightbox__video" src="" title="Video Player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
     <div class="lightbox__meta">
       <div class="lightbox__title display"></div>
       <div class="lightbox__cat mono"></div>
