@@ -74,6 +74,8 @@ function initLightbox(){
   if(!lightbox) return;
 
   const mediaEl = lightbox.querySelector('.lightbox__media');
+  const videoWrap = lightbox.querySelector('.lightbox__video-wrap');
+  const videoEl = lightbox.querySelector('.lightbox__video');
   const titleEl = lightbox.querySelector('.lightbox__title');
   const metaEl = lightbox.querySelector('.lightbox__cat');
   const closeBtn = lightbox.querySelector('.lightbox__close');
@@ -81,10 +83,24 @@ function initLightbox(){
   document.querySelectorAll('[data-lightbox]').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
-      const label = trigger.dataset.label || mediaEl.dataset.label || '';
-      const ratio = trigger.dataset.ratio || '16/9';
-      mediaEl.setAttribute('data-label', label);
-      mediaEl.style.setProperty('--ratio', ratio);
+      const youtubeId = trigger.dataset.youtube;
+
+      if(youtubeId && videoWrap && videoEl){
+        videoEl.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`;
+        videoWrap.classList.add('is-active');
+        mediaEl.classList.add('is-hidden');
+      } else {
+        if(videoWrap && videoEl){
+          videoWrap.classList.remove('is-active');
+          videoEl.src = '';
+        }
+        mediaEl.classList.remove('is-hidden');
+        const label = trigger.dataset.label || mediaEl.dataset.label || '';
+        const ratio = trigger.dataset.ratio || '16/9';
+        mediaEl.setAttribute('data-label', label);
+        mediaEl.style.setProperty('--ratio', ratio);
+      }
+
       titleEl.textContent = trigger.dataset.title || '';
       if(metaEl) metaEl.textContent = trigger.dataset.meta || '';
       lightbox.classList.add('is-open');
@@ -95,6 +111,10 @@ function initLightbox(){
   const close = () => {
     lightbox.classList.remove('is-open');
     document.body.style.overflow = '';
+    if(videoWrap && videoEl){
+      videoEl.src = '';
+      videoWrap.classList.remove('is-active');
+    }
   };
   closeBtn && closeBtn.addEventListener('click', close);
   lightbox.addEventListener('click', (e) => { if(e.target === lightbox) close(); });
