@@ -632,6 +632,15 @@ h1,h2,h3{ margin: 0; }
   display:none;
 }
 .lightbox__video-wrap.is-active{ display:block; }
+.lightbox__img{
+  display:none;
+  width:100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  background:#000;
+}
+.lightbox__img.is-active{ display:block; }
 .lightbox__video{
   position:absolute;
   inset:0;
