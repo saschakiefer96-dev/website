@@ -3,7 +3,7 @@
    Dark, grained, editorial campaign aesthetic.
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@700&family=Bebas+Neue&family=Caveat:wght@700&family=Fredoka:wght@600&family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@700&family=Abril+Fatface&family=Cormorant+Garamond:wght@700&family=Bebas+Neue&family=Caveat:wght@700&family=Fredoka:wght@600&family=Bungee&display=swap');
 
 :root{
   --bg: #0a0a0a;
@@ -300,7 +300,19 @@ h1,h2,h3{ margin: 0; }
 .hero__title .outline{
   -webkit-text-stroke: 1px var(--fg);
   color: transparent;
+}
+.motion-wrap{
+  position: relative;
   display: inline-block;
+}
+.motion-ghost{
+  visibility: hidden;
+}
+.motion-live{
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
 }
 .hero__sub{
   margin-top: 1.6rem;

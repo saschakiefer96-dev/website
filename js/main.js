@@ -145,11 +145,14 @@ function initWorkCards(){
 
 /* Rapid font-cycling on the hero "MOTION" word */
 function initFontCycle(){
-  const el = document.querySelector('.hero__title .outline');
-  if(!el) return;
+  const wrap = document.querySelector('.motion-wrap');
+  const live = document.querySelector('.motion-live');
+  if(!wrap || !live) return;
 
   const fonts = [
     "'Playfair Display', serif",
+    "'Abril Fatface', serif",
+    "'Cormorant Garamond', serif",
     "'Bebas Neue', sans-serif",
     "'Caveat', cursive",
     "'Fredoka', sans-serif",
@@ -161,17 +164,17 @@ function initFontCycle(){
   let index = 0;
   let timer = null;
 
-  el.addEventListener('mouseenter', () => {
+  wrap.addEventListener('mouseenter', () => {
     if(timer) return;
     timer = setInterval(() => {
       index = (index + 1) % fonts.length;
-      el.style.fontFamily = fonts[index];
-    }, 90);
+      live.style.fontFamily = fonts[index];
+    }, 130);
   });
 
-  el.addEventListener('mouseleave', () => {
+  wrap.addEventListener('mouseleave', () => {
     clearInterval(timer);
     timer = null;
-    el.style.fontFamily = '';
+    live.style.fontFamily = '';
   });
 }
