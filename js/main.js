@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilters();
   initLightbox();
   initWorkCards();
+  initFontCycle();
 });
 
 /* Mobile nav toggle */
@@ -139,5 +140,38 @@ function initWorkCards(){
     card.addEventListener('click', (e) => {
       if(e.target.closest('a,button')) return;
     });
+  });
+}
+
+/* Rapid font-cycling on the hero "MOTION" word */
+function initFontCycle(){
+  const el = document.querySelector('.hero__title .outline');
+  if(!el) return;
+
+  const fonts = [
+    "'Playfair Display', serif",
+    "'Bebas Neue', sans-serif",
+    "'Caveat', cursive",
+    "'Fredoka', sans-serif",
+    "'Bungee', sans-serif",
+    "'Space Mono', monospace",
+    "'Anton', sans-serif",
+  ];
+
+  let index = 0;
+  let timer = null;
+
+  el.addEventListener('mouseenter', () => {
+    if(timer) return;
+    timer = setInterval(() => {
+      index = (index + 1) % fonts.length;
+      el.style.fontFamily = fonts[index];
+    }, 90);
+  });
+
+  el.addEventListener('mouseleave', () => {
+    clearInterval(timer);
+    timer = null;
+    el.style.fontFamily = '';
   });
 }

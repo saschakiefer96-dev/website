@@ -3,7 +3,7 @@
    Dark, grained, editorial campaign aesthetic.
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@700&family=Bebas+Neue&family=Caveat:wght@700&family=Fredoka:wght@600&family=Bungee&display=swap');
 
 :root{
   --bg: #0a0a0a;
@@ -300,26 +300,7 @@ h1,h2,h3{ margin: 0; }
 .hero__title .outline{
   -webkit-text-stroke: 1px var(--fg);
   color: transparent;
-  transition: -webkit-text-stroke-color .25s var(--ease);
-}
-.hero__title .outline:hover{
-  -webkit-text-stroke: 1px transparent;
-  background: linear-gradient(115deg,
-    #3a3a3a 0%, #f3f1ec 9%, #8a8a8a 17%, #161616 28%,
-    #f3f1ec 40%, #59564f 52%, #0a0a0a 64%, #e8e5de 76%,
-    #3a3a3a 88%, #f3f1ec 100%);
-  background-size: 300% 100%;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: chrome-sweep 2.4s linear infinite;
-}
-@keyframes chrome-sweep{
-  from{ background-position: 0% 50%; }
-  to{ background-position: 300% 50%; }
-}
-@media (prefers-reduced-motion: reduce){
-  .hero__title .outline:hover{ animation: none; background-position: 50% 50%; }
+  display: inline-block;
 }
 .hero__sub{
   margin-top: 1.6rem;
