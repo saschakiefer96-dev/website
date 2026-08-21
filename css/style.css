@@ -300,6 +300,26 @@ h1,h2,h3{ margin: 0; }
 .hero__title .outline{
   -webkit-text-stroke: 1px var(--fg);
   color: transparent;
+  transition: -webkit-text-stroke-color .25s var(--ease);
+}
+.hero__title .outline:hover{
+  -webkit-text-stroke: 1px transparent;
+  background: linear-gradient(115deg,
+    #3a3a3a 0%, #f3f1ec 9%, #8a8a8a 17%, #161616 28%,
+    #f3f1ec 40%, #59564f 52%, #0a0a0a 64%, #e8e5de 76%,
+    #3a3a3a 88%, #f3f1ec 100%);
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: chrome-sweep 2.4s linear infinite;
+}
+@keyframes chrome-sweep{
+  from{ background-position: 0% 50%; }
+  to{ background-position: 300% 50%; }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero__title .outline:hover{ animation: none; background-position: 50% 50%; }
 }
 .hero__sub{
   margin-top: 1.6rem;
