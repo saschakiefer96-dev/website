@@ -750,6 +750,38 @@ h1,h2,h3{ margin: 0; }
 }
 .num-list p{ color: var(--fg-dim); margin:0; max-width: 56ch; }
 
+/* ---------- Legal pages (Impressum / Datenschutz) ---------- */
+.legal{ max-width: 74ch; }
+.legal h2{
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+.legal h2:first-child{ margin-top:0; padding-top:0; border-top:none; }
+.legal h3{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin-top: 1.6rem;
+  margin-bottom: .4rem;
+  color: var(--fg);
+}
+.legal p{ color: var(--fg-dim); margin: 0 0 1rem; }
+.legal ul{ margin: 0 0 1rem; padding-left: 1.2rem; color: var(--fg-dim); }
+.legal li{ margin-bottom: .4rem; }
+.legal a{ color: var(--fg); text-decoration: underline; }
+.legal a:hover{ color: var(--accent); }
+.legal strong{ color: var(--fg); }
+.legal .placeholder{ color: var(--accent); }
+.legal__updated{ color: var(--fg-faint); font-size: .82rem; margin-bottom: 2.4rem; }
+
+.footer__legal{ display:flex; gap:1.2rem; }
+.footer__bottom a{ color: var(--fg-faint); text-decoration:none; }
+.footer__bottom a:hover{ color: var(--accent); }
+
 .clients{
   display:flex; flex-wrap:wrap; gap: 2.4rem 3rem;
   padding-top: 1rem;
