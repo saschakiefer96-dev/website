@@ -28,13 +28,12 @@
   --fg-dim: #8f8c86;
   --fg-faint: #55534e;
   --accent: #ff3d1f;
-  --accent-2: #d6ff3d;
   --line: rgba(243,241,236,0.14);
   --line-strong: rgba(243,241,236,0.28);
 
   --font-display: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Space Mono', 'SF Mono', Consolas, monospace;
 
   --nav-h: 84px;
   --edge: clamp(20px, 5vw, 64px);
@@ -333,7 +332,6 @@ h1,h2,h3{ margin: 0; }
   z-index:-1;
   background:
     radial-gradient(ellipse at 30% 20%, rgba(255,61,31,.16), transparent 55%),
-    radial-gradient(ellipse at 80% 80%, rgba(214,255,61,.05), transparent 50%),
     linear-gradient(180deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.35) 45%, rgba(10,10,10,.85) 100%);
 }
 .hero__bg::after{
