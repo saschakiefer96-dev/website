@@ -188,14 +188,17 @@ h1,h2,h3{ margin: 0; }
   top:0; left:0; right:0;
   z-index: 500;
   height: var(--nav-h);
+  background: linear-gradient(to bottom, rgba(var(--bg-rgb),.9), rgba(var(--bg-rgb),0));
+  backdrop-filter: blur(2px);
+}
+.nav__inner{
   max-width: var(--max-w);
+  height: 100%;
   margin-inline: auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding: 0 var(--edge);
-  background: linear-gradient(to bottom, rgba(var(--bg-rgb),.9), rgba(var(--bg-rgb),0));
-  backdrop-filter: blur(2px);
 }
 .nav__logo{
   font-family: var(--font-display);
@@ -307,7 +310,9 @@ h1,h2,h3{ margin: 0; }
 
 /* ---------- Hero ---------- */
 .hero{
-  max-width: none; /* video/bg must stay full-bleed; only .wrap's edge padding applies here */
+  max-width: none; /* video/bg must stay full-bleed */
+  padding-left: 0;
+  padding-right: 0;
   min-height: 100svh;
   display:flex;
   flex-direction:column;
@@ -316,6 +321,15 @@ h1,h2,h3{ margin: 0; }
   padding-top: var(--nav-h);
   padding-bottom: 3rem;
   overflow:hidden;
+}
+.hero__content{
+  max-width: var(--max-w);
+  width: 100%;
+  margin-inline: auto;
+  padding-left: var(--edge);
+  padding-right: var(--edge);
+  position: relative;
+  z-index: 1;
 }
 .hero__video{
   position:absolute;
