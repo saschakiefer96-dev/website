@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initWorkCards();
   initFontCycle();
+  initInlineVideo();
+  initCompareSliders();
 });
 
 /* Mobile nav toggle */
@@ -139,6 +141,63 @@ function initWorkCards(){
   cards.forEach(card => {
     card.addEventListener('click', (e) => {
       if(e.target.closest('a,button')) return;
+    });
+  });
+}
+
+/* Click-to-play video embed (replaces its own thumbnail, no modal) */
+function initInlineVideo(){
+  document.querySelectorAll('[data-inline-video]').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.dataset.youtube;
+      if(!id) return;
+      const title = el.dataset.title || 'Video';
+      el.innerHTML = `<iframe class="video-embed__iframe" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1" title="${title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+      el.classList.add('is-playing');
+    }, { once: true });
+  });
+}
+
+/* Before/after comparison sliders */
+function initCompareSliders(){
+  document.querySelectorAll('[data-compare]').forEach(el => {
+    let dragging = false;
+
+    const setPos = (clientX) => {
+      const rect = el.getBoundingClientRect();
+      const pct = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+      el.style.setProperty('--pos', pct + '%');
+      el.setAttribute('aria-valuenow', String(Math.round(pct)));
+    };
+
+    el.setAttribute('role', 'slider');
+    el.setAttribute('aria-valuemin', '0');
+    el.setAttribute('aria-valuemax', '100');
+    el.setAttribute('aria-valuenow', '50');
+    el.setAttribute('aria-label', el.dataset.compareLabel || 'Vorher/Nachher-Vergleich');
+    el.setAttribute('tabindex', '0');
+
+    el.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      el.setPointerCapture(e.pointerId);
+      setPos(e.clientX);
+    });
+    el.addEventListener('pointermove', (e) => {
+      if(!dragging) return;
+      setPos(e.clientX);
+    });
+    const stopDrag = () => { dragging = false; };
+    el.addEventListener('pointerup', stopDrag);
+    el.addEventListener('pointercancel', stopDrag);
+
+    el.addEventListener('keydown', (e) => {
+      const current = parseFloat(el.style.getPropertyValue('--pos')) || 50;
+      if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+        const next = Math.min(100, Math.max(0, current + (e.key === 'ArrowLeft' ? -5 : 5)));
+        el.style.setProperty('--pos', next + '%');
+        el.setAttribute('aria-valuenow', String(Math.round(next)));
+        e.preventDefault();
+      }
     });
   });
 }
